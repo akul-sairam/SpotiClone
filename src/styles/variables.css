@@ -1,0 +1,48 @@
+:root {
+  /* Spotify Core Color Palette */
+  --bg-black: #000000;
+  --bg-base: #121212;
+  --bg-highlight: #1a1a1a;
+  --bg-press: #000000;
+  --bg-card: #181818;
+  --bg-card-hover: #282828;
+  --bg-elevated: #242424;
+  --bg-glass: rgba(18, 18, 18, 0.82);
+  --bg-glass-card: rgba(255, 255, 255, 0.05);
+
+  /* Brand Accents */
+  --spotify-green: #1db954;
+  --spotify-green-hover: #1ed760;
+  --spotify-green-active: #169c46;
+  --spotify-green-glow: rgba(29, 185, 84, 0.35);
+
+  /* Typography Colors */
+  --text-base: #ffffff;
+  --text-subdued: #b3b3b3;
+  --text-muted: #727272;
+  --text-negative: #f15e6c;
+  --text-warning: #ffa42b;
+
+  /* Borders & Dividers */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.15);
+  --border-bright: rgba(255, 255, 255, 0.25);
+
+  /* Shadows */
+  --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-card-hover: 0 16px 32px rgba(0, 0, 0, 0.7);
+  --shadow-elevated: 0 16px 40px rgba(0, 0, 0, 0.8);
+  --shadow-green: 0 8px 24px rgba(29, 185, 84, 0.4);
+
+  /* Layout dimensions */
+  --sidebar-width: 280px;
+  --player-height: 90px;
+  --header-height: 64px;
+  --border-radius-base: 8px;
+  --border-radius-pill: 9999px;
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}

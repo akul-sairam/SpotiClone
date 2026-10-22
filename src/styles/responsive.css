@@ -1,0 +1,135 @@
+@import './variables.css';
+
+/* ---------------- Responsive Styles ---------------- */
+@media (max-width: 900px) {
+  :root {
+    --sidebar-width: 220px;
+  }
+  .tracks-table-header,
+  .track-row {
+    grid-template-columns: 40px 5fr 3fr 80px !important;
+  }
+  .track-date-col,
+  .tracks-table-header div:nth-child(4) {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  #app {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr var(--player-height) 56px;
+    grid-template-areas:
+      "main"
+      "player"
+      "mobile-nav";
+    padding: 0;
+    gap: 0;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .main-view-container {
+    border-radius: 0;
+  }
+
+  .top-nav {
+    padding: 0 16px;
+  }
+
+  .view-content {
+    padding: 0 16px 24px 16px;
+  }
+
+  .playlist-hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 24px 16px;
+  }
+  .hero-cover-art,
+  .hero-cover-placeholder {
+    width: 160px;
+    height: 160px;
+  }
+  .hero-meta-row {
+    justify-content: center;
+  }
+  .playlist-action-bar {
+    justify-content: center;
+  }
+
+  .tracks-table-header,
+  .track-row {
+    grid-template-columns: 36px 1fr 70px !important;
+  }
+  .track-album-col,
+  .tracks-table-header div:nth-child(3) {
+    display: none !important;
+  }
+
+  .player-bar {
+    padding: 0 12px;
+  }
+  .player-track-info {
+    width: 60%;
+    min-width: 0;
+  }
+  .player-controls-center {
+    width: 40%;
+  }
+  .player-timeline-row {
+    display: none;
+  }
+  .player-tools-right {
+    display: none;
+  }
+  .player-buttons-row {
+    gap: 12px;
+  }
+  .control-btn.shuffle-btn,
+  .control-btn.repeat-btn {
+    display: none;
+  }
+
+  /* Mobile Bottom Navigation Bar */
+  .mobile-bottom-nav {
+    grid-area: mobile-nav;
+    background-color: rgba(18, 18, 18, 0.98);
+    border-top: 1px solid var(--border-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 100;
+  }
+  .mobile-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    color: var(--text-subdued);
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .mobile-nav-item.active {
+    color: var(--text-base);
+  }
+
+  .queue-drawer {
+    width: 100vw;
+    right: 0;
+    top: 0;
+    bottom: calc(var(--player-height) + 56px);
+    border-radius: 0;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-bottom-nav {
+    display: none !important;
+  }
+}

@@ -1,0 +1,299 @@
+@import './variables.css';
+
+/* ---------------- Bottom Player Bar ---------------- */
+.player-bar {
+  grid-area: player;
+  background-color: var(--bg-black);
+  height: var(--player-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  z-index: 100;
+  border-top: 1px solid var(--border-subtle);
+  position: relative;
+}
+
+/* ---------------- Left: Track Info ---------------- */
+.player-track-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 30%;
+  min-width: 180px;
+}
+
+.player-cover-container {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  border-radius: 4px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+.player-cover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-fast);
+}
+.player-cover-container:hover .player-cover-img {
+  transform: scale(1.05);
+}
+.player-cover-expand-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  color: var(--text-base);
+  transition: opacity var(--transition-fast);
+}
+.player-cover-container:hover .player-cover-expand-overlay {
+  opacity: 1;
+}
+
+.player-meta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+  min-width: 0;
+  margin-right: 8px;
+}
+.player-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-base);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+.player-title:hover {
+  text-decoration: underline;
+}
+.player-artist {
+  font-size: 0.76rem;
+  color: var(--text-subdued);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+.player-artist:hover {
+  color: var(--text-base);
+  text-decoration: underline;
+}
+
+.player-like-btn {
+  background: none;
+  border: none;
+  color: var(--text-subdued);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  transition: transform var(--transition-fast), color var(--transition-fast);
+}
+.player-like-btn:hover {
+  color: var(--text-base);
+  transform: scale(1.15);
+}
+.player-like-btn.liked {
+  color: var(--spotify-green);
+}
+.player-like-btn.pop {
+  animation: heartPop 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+@keyframes heartPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.35); }
+  100% { transform: scale(1); }
+}
+
+/* ---------------- Center: Playback & Timeline Controls ---------------- */
+.player-controls-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 720px;
+  width: 40%;
+  gap: 8px;
+}
+
+.player-buttons-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.control-btn {
+  background: none;
+  border: none;
+  color: var(--text-subdued);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  position: relative;
+}
+.control-btn:hover {
+  color: var(--text-base);
+  transform: scale(1.08);
+}
+.control-btn.active {
+  color: var(--spotify-green);
+}
+.control-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--spotify-green);
+}
+
+.play-pause-main-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--text-base);
+  color: #000000;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform var(--transition-fast), background-color var(--transition-fast);
+}
+.play-pause-main-btn:hover {
+  transform: scale(1.08);
+  background-color: #ffffff;
+}
+.play-pause-main-btn:active {
+  transform: scale(0.96);
+}
+
+/* Timeline scrubber row */
+.player-timeline-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.time-label {
+  font-size: 0.72rem;
+  color: var(--text-subdued);
+  min-width: 38px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom Sleek Slider */
+.custom-slider-container {
+  flex: 1;
+  position: relative;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.slider-track {
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: rgba(255, 255, 255, 0.25);
+  position: relative;
+  overflow: hidden;
+  transition: height var(--transition-fast);
+}
+.custom-slider-container:hover .slider-track {
+  height: 6px;
+}
+.slider-fill {
+  height: 100%;
+  width: 0%;
+  background-color: var(--text-base);
+  border-radius: 2px;
+  transition: background-color var(--transition-fast);
+}
+.custom-slider-container:hover .slider-fill {
+  background-color: var(--spotify-green);
+}
+.slider-thumb {
+  position: absolute;
+  left: 0%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+  pointer-events: none;
+}
+.custom-slider-container:hover .slider-thumb {
+  opacity: 1;
+}
+
+/* ---------------- Right: Volume & Tools ---------------- */
+.player-tools-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  width: 30%;
+  min-width: 180px;
+}
+
+.queue-btn-wrapper {
+  position: relative;
+}
+.queue-badge-count {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background-color: var(--spotify-green);
+  color: #000000;
+  font-size: 0.65rem;
+  font-weight: 800;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.volume-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 125px;
+}
+.volume-icon-btn {
+  background: none;
+  border: none;
+  color: var(--text-subdued);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: color var(--transition-fast);
+}
+.volume-icon-btn:hover {
+  color: var(--text-base);
+}
